@@ -374,10 +374,10 @@ input[type=text] {
       }
       .hero__center{
           text-align: center;
-          
+          justify-content: center;
           position: absolute;
             top: 30%;
-         transform: translate(15%, -30%); 
+         transform: translate(15%, -40%);
       }
       
       .hero__center, .hero-content h2 {
@@ -1130,7 +1130,7 @@ input[type=text] {
       }
       
       td a {
-        color: orangered;
+        color: #ffa200;
         font-size: 1.4rem;
       }
       
@@ -1149,7 +1149,7 @@ input[type=text] {
       }
       
       .total-price table {
-        border-top: 3px solid #fc7c7c;
+        border-top: 3px solid #ffa200;
         width: 100%;
         max-width: 35rem;
       }
@@ -1306,87 +1306,6 @@ input {
 	}
 }
 
-.overlay-container {
-	position: absolute;
-	top: 0;
-	left: 50%;
-	width: 50%;
-	height: 100%;
-	overflow: hidden;
-	transition: transform 0.6s ease-in-out;
-	z-index: 100;
-}
-
-.main__container.right-panel-active .overlay-container{
-	transform: translateX(-100%);
-}
-
-.overlay {
-	background: #FF416C;
-	background: -webkit-linear-gradient(to right,#ffa200 , #fd2f2f);
-	background: linear-gradient(to right,#ffa200, #fd2f2f);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: 0 0;
-	color: #FFFFFF;
-	position: relative;
-	left: -100%;
-	height: 100%;
-	width: 200%;
-  	transform: translateX(0);
-	transition: transform 0.6s ease-in-out;
-}
-
-.main__container.right-panel-active .overlay {
-  	transform: translateX(50%);
-}
-
-.overlay-panel {
-	position: absolute;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	padding: 0 40px;
-	text-align: center;
-	top: 0;
-	height: 100%;
-	width: 50%;
-	transform: translateX(0);
-	transition: transform 0.6s ease-in-out;
-}
-
-.overlay-left {
-	transform: translateX(-20%);
-}
-
-.main__container.right-panel-active .overlay-left {
-	transform: translateX(0);
-}
-
-.overlay-right {
-	right: 0;
-	transform: translateX(0);
-}
-
-.main__container.right-panel-active .overlay-right {
-	transform: translateX(20%);
-}
-
-.social-container {
-	margin: 20px 0;
-}
-
-.social-container a {
-	border: 1px solid #DDDDDD;
-	border-radius: 50%;
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	margin: 0 5px;
-	height: 40px;
-	width: 40px;
-}
 
 /* footer */
 
@@ -1424,41 +1343,3 @@ li{
 
 
 
-
-      /* contacts */
-
-
-      table{
-        border-collapse: collapse;
-       padding: 20px;
-       font-style: italic;
-       letter-spacing: 1px;
-       margin: 20px 0px;
-   }
-   table.list{
-       width:100%;
-   }
-
-   td, th {
-       border: 0px solid #dddddd;
-       text-align: left;
-       padding: 20px;
-   }
-   tr:nth-child(even),table.list thead>tr {
-       background-color: #ffa200;
-   }
-   .crud{
-    margin: 0 auto;
-    width: 40%; 
-    padding: 20px;
-  }
-
-  
-  .crud-button{
-    font-size: 30px;
-  }
-
-  .form__search{
-    width: 100%;
-    margin: 20px 0px;
-  }
