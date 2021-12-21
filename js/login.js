@@ -29,11 +29,11 @@ function validateEmail(data) {
 }  
 
 function disableButton() {
-  document.getElementById('submit').disabled = true;
+  document.getElementById('signup').disabled = true;
 }
 
 function enableButton() {
-  document.getElementById('submit').disabled = false;
+  document.getElementById('signup').disabled = false;
 }
 
 document.getElementById('name').onblur = function() {
@@ -101,5 +101,3 @@ document.getElementById('password').onblur = function() {
   
  
 }
-
-
