@@ -1,4 +1,128 @@
 *{
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+a{
+    text-decoration: none;
+}
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+header{
+    background-color: #f8f9fa;
+    padding: 10px;
+}
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f9fa;
+}
+.nav a{
+    color: #14213d;
+}
+    .nav__leftside{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+        .nav__leftside_item{
+            padding: 10px;
+        }
+
+
+    .nav__rightside{
+        display: flex;
+        justify-content: space-between;  
+        align-items: center;
+    }
+        .nav__rightside_item{
+            padding: 10px;
+        }
+
+    .navbar{
+        display:grid;
+        grid-template-columns: 200px 800px 200px;
+    }
+    .navbar__logos_item img{
+        width: 100px;
+        border-radius: 100%;
+    }
+    .navbar__inputgroup{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .navbar__cart{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 20px;
+    }
+    .navbar__cart a{
+        margin-left: 10px;
+        color: #ffa200;
+    }
+    
+    .inputgroup__btns{
+        display: inline-flex;
+    }
+    .inputgroup__btns button{
+        width: 40px;
+        height:40px;
+        color: #ffa200;
+    
+    }
+
+
+
+
+    /* banners */
+
+
+    .banners{
+        text-align: center;
+        background-color: #fef9ef;
+        padding: 50px 0px;
+    }
+    .banners h1{
+        font-size: xx-large;
+        margin-bottom: 50px;
+        border: 10px solid #ffa200;
+        padding: 10px 10px;
+    }
+    .banners__gender{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+    }
+    .banners__gender-select{
+       width: 400px;
+       height: 600px;
+        margin: 1px;
+        opacity: 1;
+    }
+    .banners__gender-select:hover{
+        opacity: 0.7;
+    }
+    .banner__text{
+        
+        padding: 5% 30%;
+        font-size: 30px;
+        color: #14213d;
+        background-color:  #ffa200;
+        opacity: 0.7;
+    }
+    
+
+
+
+    /* deal */
+
