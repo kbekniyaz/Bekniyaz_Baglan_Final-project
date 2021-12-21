@@ -1187,7 +1187,7 @@ h2 {
 	text-align: center;
 }
 
-p {
+.main__container p {
 	font-size: 14px;
 	font-weight: 100;
 	line-height: 20px;
@@ -1195,7 +1195,7 @@ p {
 	margin: 20px 0 30px;
 }
 
-span {
+.main__conteiner span {
 	font-size: 12px;
 }
 
