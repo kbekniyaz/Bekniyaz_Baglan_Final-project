@@ -1187,7 +1187,7 @@ h2 {
 	text-align: center;
 }
 
-.main__container p {
+#form p {
 	font-size: 14px;
 	font-weight: 100;
 	line-height: 20px;
@@ -1195,7 +1195,7 @@ h2 {
 	margin: 20px 0 30px;
 }
 
-.main__conteiner span {
+#form span {
 	font-size: 12px;
 }
 
