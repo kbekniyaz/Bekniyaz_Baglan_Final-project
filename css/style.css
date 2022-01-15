@@ -449,7 +449,7 @@ input[type=text] {
           bottom: -15%;
         }
       
-        .hero-content {
+        .hero__center, .hero-content {
           top: 40%;
           transform: translate(15%, -50%);
         }
@@ -458,15 +458,15 @@ input[type=text] {
           right: 0%;
         }
       
-        .hero-content h2 {
+        .hero__center, .hero-content h2 {
           font-size: 1.8rem;
         }
       
-        .hero-content h1 span {
+        .hero__center, .hero-content h1 span {
           font-size: 4rem;
         }
       
-        .hero-content a {
+        .hero__center, .hero-content a {
           padding: 1rem 3rem;
         }
       }
