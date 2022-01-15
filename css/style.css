@@ -57,7 +57,14 @@ input[type=text] {
         .nav__rightside_item{
             padding: 10px;
         }
-
+ @media only screen and (max-width: 654px) {
+          .nav {
+            display: grid;
+            grid-template-columns: 1fr;
+            margin: 0;
+            padding: 0;
+          }
+        }
 
     .navbar{
         display:grid;
@@ -96,7 +103,21 @@ input[type=text] {
      transition: all 500ms ease-in-out;
     }
 
-
+@media only screen and (max-width: 1000px) {
+      .navbar{
+        display:grid;
+        grid-template-columns: 200px 400px 100px;
+    }
+    }
+    @media only screen and (max-width: 654px) {
+      .navbar {
+        display: grid;
+        grid-template-columns: 20% 60% 20%;
+      }
+      .navbar__logos{
+        margin: 0 auto;
+      }
+    }
 
     /* banners */
 
