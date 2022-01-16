@@ -51,28 +51,34 @@
     
 	<div class="main__container" id="main__container">
 		<div class="form-container sign-up-container">
-			<form  id="form" action="#">
+			<form class="RegisterForm" id="user-form" action="#">
 				<h1 class="main__container__hf">Create Account</h1>
 
 				
-				<input type="text" id="username" placeholder="Name" />
+				<input type="text" class="register__name" id="username" placeholder="Name" />
 				
-				<input type="email" id="email" placeholder="Email" />
+				<input type="email" class="register__email" id="email" placeholder="Email" />
 				
-				<input type="password" id="password" placeholder="Password" />
+				<input type="password" class="register__password" id="password" placeholder="Password" />
 				
-				<button id="submit">Sign Up</button>
+				<button type="submit">Sign Up</button>
 			</form>
 		</div>
 		<div class="form-container sign-in-container">
-			<form action="#">
+			<form action="index.html" class="loginForm">
 				<h1 class="main__container__hf">Sign in</h1>
 
 				
-				<input type="email" placeholder="Email" />
-				<input type="password" placeholder="Password" />
+				<input  class = "input" type="email" id="sign_e" placeholder="Email" />
+				
+				<span class="error-message"></span>
+				<br>
+				<input class = "input" type="password" id="sign_p" placeholder="Password" />
+				
+				<span class="error-message"></span>
+				<br>
 				<a href="#">Forgot your password?</a>
-				<button id="submit">Sign In</button>
+				<button  id="si" class="button" type="submit">Sign In</button>
 			</form>
 		</div>
 		<div class="overlay-container">
@@ -90,7 +96,19 @@
 			</div>
 		</div>
 	</div>
+	<table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="user-list"></tbody>
+    </table>
 	</div>
+	
 
 	<footer class="grid__footer">
 		<div class="column">
@@ -150,5 +168,6 @@
         <script src="https://kit.fontawesome.com/83c2545468.js" crossorigin="anonymous"></script>
 
 	<script src="js/login.js"></script>
+	<script src="init.js"></script>
 </body>
 </html>
