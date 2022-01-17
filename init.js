@@ -1,134 +1,73 @@
-//CRUD system for register
-//User class
-class User{
-	constructor(username,email,password){
-		this.username = username;
-		this.email = email;
-		this.password = password;
+var selectedRow = null
 
-	}
+function onFormSubmit() {
+    if (validate()) {
+        var formData = readFormData();
+        if (selectedRow == null)
+            insertNewRecord(formData);
+        else
+            updateRecord(formData);
+        resetForm();
+    }
 }
 
-//UI class;
-class UI{
-	static displayUsers(){
-		
-		const users = Store.getUsers();
-
-
-		users.forEach((user)=>UI.addUserToList(user));
-	};
-
-	static addUserToList(user){
-		const list = document.querySelector('#user-list');
-
-		const row = document.createElement('tr');
-
-		row.innerHTML=`
-		<td>${user.username}</td>
-		<td>${user.email}</td>
-		<td>${user.password }</td>
-		<td><a href = "#" class="delete">X</a></td>
-		`;
-		list.appendChild(row);
-
-	};
-	static deleteUser(el){
-		if(el.classList.contains('delete')){
-			el.parentElement.parentElement.remove();
-		}
-	}
-	static showAlert(message,className){
-		const div = document.createElement('div')
-		div.className = `alert ${className}`;
-		div.appendChild(document.createTextNode(message));
-		const container = document.querySelector('.sign-up-container');
-		const form = document.querySelector('#user-form');
-		container.insertBefore(div,form);
-
-		 setTimeout(()=>document.querySelector('.alert').remove(),3000);
-	}
-
-	static clearFields(){
-		document.querySelector('#username').value='';
-		document.querySelector('#email').value='';
-		document.querySelector('#password').value='';
-		
-	}
+function readFormData() {
+    var formData = {};
+    formData["RegUser"] = document.getElementById("RegUser").value;
+    formData["email"] = document.getElementById("email").value;
+    formData["RegPass"] = document.getElementById("RegPass").value;
+    return formData;
 }
 
-//Store class
-class Store{
-	getUsers(){
-		let users;
-		if(localStorage.getItem('users') === null){
-			users = [];
-		}else{
-			users = JSON.parse(localStorage.getItem('users'));
-		}
-
-		return users;
-	}
-	addUsers(user){
-		const users = Store.getUsers();
-
-		users.push(user);
-
-		localStorage.setItem('users', JSON.stringify(users));
-
-	}
-
-	removeUsers(password){
-		const users = Store.getUsers();
-
-		users.forEach((user,index)=>{
-			if(user.password === password){
-				users.splice(index,1);
-
-			}
-		});
-
-		localStorage.setItem('users', JSON.stringify(users));
-
-	}
+function insertNewRecord(data) {
+    var table = document.getElementById("userList").getElementsByTagName('tbody')[0];
+    var newRow = table.insertRow(table.length);
+    cell1 = newRow.insertCell(0);
+    cell1.innerHTML = data.fullName;
+    cell2 = newRow.insertCell(1);
+    cell2.innerHTML = data.empCode;
+    cell3 = newRow.insertCell(2);
+    cell3.innerHTML = data.salary;
+    cell4 = newRow.insertCell(3);
+    cell4.innerHTML = `<a onClick="onEdit(this)">Edit</a>
+                       <a onClick="onDelete(this)">Delete</a>`;
 }
-//display users
-document.addEventListener('DOMContentLoaded',UI.displayUsers);
-//add a user
-document.querySelector('#user-form').addEventListener('submit',(e)=>
-{
-	e.preventDefault();
 
-	const username = document.querySelector('#username').value;
-	const email = document.querySelector('#email').value;
-	const password = document.querySelector('#password').value;
+function resetForm() {
+    document.getElementById("RegUser").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("RegPass").value = "";
+    selectedRow = null;
+}
 
-	if(username==='' || email==='' || password===''){
-		UI.showAlert('Please fill in all fields','danger');
+function onEdit(td) {
+    selectedRow = td.parentElement.parentElement;
+    document.getElementById("RegUser").value = selectedRow.cells[0].innerHTML;
+    document.getElementById("email").value = selectedRow.cells[1].innerHTML;
+    document.getElementById("RegPass").value = selectedRow.cells[2].innerHTML;
+}
+function updateRecord(formData) {
+    selectedRow.cells[0].innerHTML = formData.fullName;
+    selectedRow.cells[1].innerHTML = formData.email;
+    selectedRow.cells[2].innerHTML = formData.password;
+}
 
-	}else{
-
-	}
-
-	const user = new User(username,email,password);
-
-	
-	UI.addUserToList(user);
-
-	Store.addUsers(user);
-
-	UI.showAlert('User Added','success');
-
-
-	UI.clearFields();
-
-
-});
-//remove a user
-document.querySelector('#user-list').addEventListener('click' , (e)=>{
-	UI.deleteUser(e.target);
-
-
-	UI.showAlert('User Removed','success');
-
-});
+function onDelete(td) {
+    if (confirm('Are you sure to delete this record ?')) {
+        row = td.parentElement.parentElement;
+        document.getElementById("userList").deleteRow(row.rowIndex);
+        resetForm();
+    }
+}
+function validate() {
+    isValid = true;
+    if (document.getElementById("RegUser").value == "") {
+        isValid = false;
+        document.getElementById("fullNameValidationError").classList.remove("hide");
+    } else {
+        isValid = true;
+        if (!document.getElementById("fullNameValidationError").classList.contains("hide"))
+            document.getElementById("fullNameValidationError").classList.add("hide");
+    }
+    return isValid;
+}

@@ -51,34 +51,41 @@
     
 	<div class="main__container" id="main__container">
 		<div class="form-container sign-up-container">
-			<form class="RegisterForm" id="user-form" action="#">
+			<form name="redForm" onsubmit="event.preventDefault();onFormSubmit();return Validate();" autocomplete="off" class="RegisterForm form" id="user-form" action="#" method="post">
 				<h1 class="main__container__hf">Create Account</h1>
-
-				
-				<input type="text" class="register__name" id="username" placeholder="Name" />
-				
-				<input type="email" class="register__email" id="email" placeholder="Email" />
-				
-				<input type="password" class="register__password" id="password" placeholder="Password" />
-				
-				<button type="submit">Sign Up</button>
+					
+				<label>Full Name*</label><label class="validation-error hide" id="fullNameValidationError">This field is required.</label>
+				<div class="form-group">
+				<input type="text" class="register__name form-control" id="RegUser"  placeholder="Name" name="username" />
+				</div>
+				<div class="form-group">
+				<input type="email" class="register__email form-control" id="email" placeholder="Email" name="email"/>
+				</div>
+				<div class="form-group">
+				<input type="password" class="register__password form-control" id="RegPass" placeholder="Password" name="password" />
+				</div>
+				<div class="form-group">
+				<button type="submit" value="register">Sign Up</button>
+				</div>
 			</form>
 		</div>
 		<div class="form-container sign-in-container">
-			<form action="index.html" class="loginForm">
+			<form  class="form" name="loginForm" onSubmit="validateForm();" action="" method="post">
 				<h1 class="main__container__hf">Sign in</h1>
-
-				
-				<input  class = "input" type="email" id="sign_e" placeholder="Email" />
-				
+				<div class="form-group">
+				<input  class = "form-control" type="email" id="sign_e" placeholder="Email" name="email" />
+				</div>
 				<span class="error-message"></span>
-				<br>
-				<input class = "input" type="password" id="sign_p" placeholder="Password" />
-				
+				<div class="form-group">
+				<input class = "form-control" type="password" id="sign_p" placeholder="Password" name="password" />
+				</div>
 				<span class="error-message"></span>
-				<br>
+				<div class="form-group">
 				<a href="#" id="admin">Forgot your password?</a>
+				</div>
+				<div class="form-group">
 				<button  id="si" class="button" type="submit">Sign In</button>
+				</div>
 			</form>
 		</div>
 		<div class="overlay-container">
@@ -96,7 +103,7 @@
 			</div>
 		</div>
 	</div>
-	<table class="container__table">
+	<table class="list" id="userList">
         <thead>
             <tr>
                 <th>Name</th>
